@@ -66,6 +66,48 @@ void testLists() {
   print('************************************');
 }
 
+void testSets() {
+  // Set
+  print('************************************');
+
+  Set<dynamic> dynamicSet = {'Foo', 44, 'Bar', true, 'Baz', 3.14};
+  final dynamicSetLength = dynamicSet.length;
+  print('Dynamic set length: $dynamicSetLength');
+
+  dynamicSet.add('Qux');
+  dynamicSet.add('Foo');
+  dynamicSet.add(44);
+  dynamicSet.add(false);
+  dynamicSet.add(3.14);
+
+  print(
+      'The updated dynamicSet is now: $dynamicSet and has a length of ${dynamicSet.length}');
+
+  print('************************************');
+}
+
+void testMaps() {
+  // Map
+  print('************************************');
+
+  Map<String, dynamic> dynamicMap = {
+    'fullName': 'Foo Bar',
+    'age': 44,
+    'isAdult': true,
+    'height': 1.8,
+    'weight': 80
+  };
+
+  final dynamicMapLength = dynamicMap.length;
+  print('Dynamic map length: $dynamicMapLength');
+
+  dynamicMap.addAll({'address': '123 Main St.'});
+  print('The updated dynamicMap is now: $dynamicMap');
+  print('The new map length is: ${dynamicMap.length}');
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -76,6 +118,8 @@ class MyApp extends StatelessWidget {
     testConditionals();
     testOperators();
     testLists();
+    testSets();
+    testMaps();
 
     return MaterialApp(
       title: 'Flutter Demo',
