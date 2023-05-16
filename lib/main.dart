@@ -1,9 +1,37 @@
 import 'package:flutter/material.dart';
 
-String getFullName(String firstName, String lastName) => '$firstName $lastName';
-
 void main() {
   runApp(const MyApp());
+}
+
+void testConditionals() {
+  // if, else if & else
+  const name = 'Foo';
+
+  if (name == 'Foo') {
+    print('Yes, this is Foo');
+  } else if (name != 'Bar') {
+    print('Yes, this is Bar');
+  } else {
+    print('No, this is neither Foo nor Bar');
+  }
+}
+
+void testOperators() {
+  // + - / * >= <= == != && || ! ++ --
+  var age = 26;
+  var isAdult = age >= 18;
+  var isTeenager = age >= 13 && age < 18;
+  var doubleAge = age * 2;
+  var halfAge = age / 2;
+  var ageMinusOne = --age;
+  var agePlusOne = ++age;
+  print('Is adult? $isAdult');
+  print('Is teenager? $isTeenager');
+  print('Double age: $doubleAge');
+  print('Half age: $halfAge');
+  print('Age minus one: $ageMinusOne');
+  print('Age plus one: $agePlusOne');
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +40,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print(getFullName('John', 'Doe'));
+    // TESTING OTHER FEATURES
+    testConditionals();
+    testOperators();
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
