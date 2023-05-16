@@ -191,6 +191,37 @@ void testEnumerations() {
   print('************************************');
 }
 
+// Switch Statement --> To avoid if else over statements
+enum ColorName { red, orange, yellow, green, blue, indigo, violet }
+
+void testSwitchStatement(ColorName colorName) {
+  switch (colorName) {
+    case ColorName.red:
+      print('The first color of the rainbow is red');
+      break;
+    case ColorName.orange:
+      print('The second color of the rainbow is orange');
+      break;
+    case ColorName.yellow:
+      print('The third color of the rainbow is yellow');
+      break;
+    case ColorName.green:
+      print('The fourth color of the rainbow is green');
+      break;
+    case ColorName.blue:
+      print('The fifth color of the rainbow is blue');
+      break;
+    case ColorName.indigo:
+      print('The sixth color of the rainbow is indigo');
+      break;
+    case ColorName.violet:
+      print('The seventh color of the rainbow is violet');
+      break;
+    default:
+      print('The color is not in the rainbow');
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -204,7 +235,8 @@ class MyApp extends StatelessWidget {
     // testSets();
     // testMaps();
     // testNullSafety();
-    testEnumerations();
+    // testEnumerations();
+    testSwitchStatement(ColorName.red);
 
     return MaterialApp(
       title: 'Flutter Demo',
