@@ -6,6 +6,8 @@ void main() {
 
 void testConditionals() {
   // if, else if & else
+  print('************************************');
+
   const name = 'Foo';
 
   if (name == 'Foo') {
@@ -15,10 +17,13 @@ void testConditionals() {
   } else {
     print('No, this is neither Foo nor Bar');
   }
+
+  print('************************************');
 }
 
 void testOperators() {
   // + - / * >= <= == != && || ! ++ --
+  print('************************************');
   var age = 26;
   var isAdult = age >= 18;
   var isTeenager = age >= 13 && age < 18;
@@ -32,6 +37,33 @@ void testOperators() {
   print('Half age: $halfAge');
   print('Age minus one: $ageMinusOne');
   print('Age plus one: $agePlusOne');
+  print('************************************');
+}
+
+void testLists() {
+  // List
+  print('************************************');
+
+  List<dynamic> dynamicList = ['Foo', 44, 'Bar', true, 'Baz', 3.14];
+  final dynamicListLength = dynamicList.length;
+  print('Dynamic list length: $dynamicListLength');
+
+  final firstItem = dynamicList[0];
+  print('First item: $firstItem');
+
+  final lastItem = dynamicList[dynamicListLength - 1];
+  print('Last item: $lastItem');
+
+  final lastItemAlternative = dynamicList.last;
+  print('Last item alternative: $lastItemAlternative');
+
+  final secondItem = dynamicList.elementAt(1);
+  print('Second item: $secondItem');
+
+  final addToDynamicList = dynamicList..add('Qux');
+  print('The updated dynamicList is now: $dynamicList');
+
+  print('************************************');
 }
 
 class MyApp extends StatelessWidget {
@@ -43,6 +75,7 @@ class MyApp extends StatelessWidget {
     // TESTING OTHER FEATURES
     testConditionals();
     testOperators();
+    testLists();
 
     return MaterialApp(
       title: 'Flutter Demo',
