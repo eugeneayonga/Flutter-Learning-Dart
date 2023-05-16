@@ -224,17 +224,19 @@ void testSwitchStatement(ColorName colorName) {
 
 // Class --> A group of various functionalities packed together
 class Person {
-  void breath() {
-    print('Person is breathing');
-  }
+  void breath() => print('Person is breathing');
+  void run() => print('Person is running');
+  void walk() => print('Person is walking');
+}
 
-  void run() {
-    print('Person is running');
-  }
+class Company {
+  final String name;
 
-  void walk() {
-    print('Person is walking');
-  }
+  Company(
+      this.name); // Class constructor // Constructors allow you to create an instance of a class with optional parameters
+
+  void companyLocation() => print(
+      'The company is located in the US'); // companyLocation is a method // Methods are functions inside a class that can be called on an object
 }
 
 void testClasses() {
@@ -246,6 +248,12 @@ void testClasses() {
   person.breath();
   person.run();
   person.walk();
+
+  // Instantiating the Company class --> Using the constructor
+  final company = Company('Foo Bar Inc.');
+  print('Company name: ${company.name}'); // name is an instance variable
+
+  company.companyLocation();
 
   print('************************************');
 }
