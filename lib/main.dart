@@ -108,6 +108,53 @@ void testMaps() {
   print('************************************');
 }
 
+void testNullSafety() {
+  // Making any type nullable --> Use ? after the data type such as "String?"
+
+  print('************************************');
+
+  Map<String?, dynamic> personalInfo = {
+    'fullName': 'Foo Bar',
+    'age': 44,
+    'height': null,
+    'weight': null
+  };
+
+  print('Personal info: $personalInfo');
+  // now we can add values to the height and weight keys to make them non-null
+  personalInfo.addAll({'height': 1.8, 'weight': 80});
+  print('Updated personal info: $personalInfo');
+
+  // Cherry-picking non-null values from the map --> Using ?? operator
+  const String? firstName = null;
+  const String? middleName = null;
+  const String lastName = 'Baz';
+
+  const firstNonNullName = firstName ?? middleName ?? lastName;
+  print('First non-null name: $firstNonNullName');
+
+  // Null-Aware Assignment Operator (??=)
+  String? name = firstName;
+  name ??= middleName;
+  name ??= lastName;
+  print('Name: $name');
+
+  // Conditional Property Access (?.)
+  const String? foo = null;
+  const String bar = 'Bar';
+  const String baz = 'Baz';
+
+  final String? fooBar = foo?.toUpperCase();
+  final String barBaz = bar.toUpperCase();
+  final String bazFoo = baz.toUpperCase();
+
+  print('fooBar: $fooBar');
+  print('barBaz: $barBaz');
+  print('bazFoo: $bazFoo');
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -115,11 +162,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TESTING OTHER FEATURES
-    testConditionals();
-    testOperators();
-    testLists();
-    testSets();
-    testMaps();
+    // testConditionals();
+    // testOperators();
+    // testLists();
+    // testSets();
+    // testMaps();
+    testNullSafety();
 
     return MaterialApp(
       title: 'Flutter Demo',
