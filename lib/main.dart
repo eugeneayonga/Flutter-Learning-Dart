@@ -239,6 +239,14 @@ class Company {
       'The company is located in the US'); // companyLocation is a method // Methods are functions inside a class that can be called on an object
 }
 
+// Class Inheritance --> A class can inherit properties and methods from another class
+class LivingThing {
+  void jump() => print('The living thing is jumping');
+  void sleep() => print('The living thing is sleeping');
+}
+
+class Cat extends LivingThing {} // Cat class inherits from LivingThing class
+
 void testClasses() {
   print('************************************');
 
@@ -254,6 +262,11 @@ void testClasses() {
   print('Company name: ${company.name}'); // name is an instance variable
 
   company.companyLocation();
+
+  // Instantiating the Cat class
+  final fluffers = Cat();
+  fluffers.jump();
+  fluffers.sleep();
 
   print('************************************');
 }
