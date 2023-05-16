@@ -222,6 +222,34 @@ void testSwitchStatement(ColorName colorName) {
   }
 }
 
+// Class --> A group of various functionalities packed together
+class Person {
+  void breath() {
+    print('Person is breathing');
+  }
+
+  void run() {
+    print('Person is running');
+  }
+
+  void walk() {
+    print('Person is walking');
+  }
+}
+
+void testClasses() {
+  print('************************************');
+
+  // Instantiating the Person class
+  final person =
+      Person(); // person is an object of the Person class // Objects are instances of a class
+  person.breath();
+  person.run();
+  person.walk();
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -236,7 +264,8 @@ class MyApp extends StatelessWidget {
     // testMaps();
     // testNullSafety();
     // testEnumerations();
-    testSwitchStatement(ColorName.red);
+    // testSwitchStatement(ColorName.red);
+    testClasses();
 
     return MaterialApp(
       title: 'Flutter Demo',
