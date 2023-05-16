@@ -155,6 +155,42 @@ void testNullSafety() {
   print('************************************');
 }
 
+// Enumerations --> Named list or related items
+enum PersonDetails {
+  firstName,
+  lastName,
+  age,
+  height,
+  weight,
+}
+
+void testEnumerations() {
+  print('************************************');
+
+  const person1 = {
+    PersonDetails.firstName: 'Foo',
+    PersonDetails.lastName: 'Bar',
+    PersonDetails.age: 44,
+    PersonDetails.height: 1.8,
+    PersonDetails.weight: 80
+  };
+
+  const person2 = {
+    PersonDetails.firstName: 'Baz',
+    PersonDetails.lastName: 'Qux',
+    PersonDetails.age: 33,
+    PersonDetails.height: 1.6,
+    PersonDetails.weight: 60
+  };
+
+  print(PersonDetails.firstName);
+  print(PersonDetails.firstName.name);
+  print('$person1');
+  print('$person2');
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -167,7 +203,8 @@ class MyApp extends StatelessWidget {
     // testLists();
     // testSets();
     // testMaps();
-    testNullSafety();
+    // testNullSafety();
+    testEnumerations();
 
     return MaterialApp(
       title: 'Flutter Demo',
