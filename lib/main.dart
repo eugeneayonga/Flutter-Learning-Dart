@@ -312,7 +312,7 @@ void testClasses() {
   print('************************************');
 }
 
-// Advanced Dart
+// ADVANCED DART
 // 1) Extensions --> Used to add functionality to existing classes
 class Lion {
   final String name;
@@ -333,14 +333,28 @@ extension FullName on PersonName {
   String get fullName => '$firstName $lastName';
 }
 
-void testAdvancedDart() {
+void testAdvancedDartExtensions() {
   print('************************************');
 
+  // extensions
   final lion = Lion('Simba');
   lion.run();
-
   final personName = PersonName('Foo', 'Bar');
   print('Full name: ${personName.fullName}');
+
+  print('************************************');
+}
+
+// 2) Future --> Used to handle asynchronous operations // Data that will be available in the future
+Future<int> multipliesByTwo(int a) =>
+    Future.delayed(const Duration(seconds: 4), () => a * 2);
+
+// async/await --> Mechanism for controlling asynchronous flow of data
+void testAdvancedDartFuture() async {
+  print('************************************');
+
+  final result = await multipliesByTwo(10);
+  print('Result: $result');
 
   print('************************************');
 }
@@ -361,7 +375,8 @@ class MyApp extends StatelessWidget {
     // testEnumerations();
     // testSwitchStatement(ColorName.red);
     // testClasses();
-    testAdvancedDart();
+    // testAdvancedDartExtensions();
+    testAdvancedDartFuture();
 
     return MaterialApp(
       title: 'Flutter Demo',
