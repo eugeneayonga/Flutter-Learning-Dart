@@ -377,6 +377,34 @@ void testAdvancedDartStreams() async {
   print('************************************');
 }
 
+// 4) Generators --> Used to generate a sequence of values // For generating 'lazy iterables', marked with sync* or async* // Iterables are objects created on the fly that can be iterated upon
+Iterable<int> getNumbers(int n) sync* {
+  for (var i = 0; i < n; i++) {
+    yield i;
+  }
+}
+
+// Stream generators
+Stream<int> getNumbersStream(int n) async* {
+  for (var i = 0; i < n; i++) {
+    yield i * 5;
+  }
+}
+
+void testAdvancedDartGenerators() {
+  print('************************************');
+
+  final numbers = getNumbers(5);
+  print('Numbers: $numbers');
+
+  final numbersStream = getNumbersStream(5);
+  numbersStream.listen((event) {
+    print(event);
+  });
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -396,6 +424,7 @@ class MyApp extends StatelessWidget {
     // testAdvancedDartExtensions();
     // testAdvancedDartFuture();
     // testAdvancedDartStreams();
+    testAdvancedDartGenerators();
 
     return MaterialApp(
       title: 'Flutter Demo',
