@@ -247,6 +247,18 @@ class LivingThing {
 
 class Cat extends LivingThing {} // Cat class inherits from LivingThing class
 
+// Factory constructor --> Used to return an instance of a class from a method
+class Dog {
+  final String name; // instance variable
+  final int age;
+
+  Dog(this.name, this.age); // Dog class constructor
+
+  factory Dog.createDog(String name, int age) {
+    return Dog(name, age);
+  } // createDog is a factory constructor // Factory constructors are used to return an instance of a class from a method
+}
+
 void testClasses() {
   print('************************************');
 
@@ -267,6 +279,10 @@ void testClasses() {
   final fluffers = Cat();
   fluffers.jump();
   fluffers.sleep();
+
+  // Instantiating the Dog class --> Using the factory constructor
+  final dog = Dog.createDog('Chop', 4);
+  print("The dog's name is ${dog.name} and it is ${dog.age} years old!");
 
   print('************************************');
 }
