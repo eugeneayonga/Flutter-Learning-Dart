@@ -259,6 +259,23 @@ class Dog {
   } // createDog is a factory constructor // Factory constructors are used to return an instance of a class from a method
 }
 
+// Custom Operator --> Used to define custom functionality for operators
+class Cow {
+  final String name;
+  final int age;
+
+  Cow(this.name, this.age);
+
+  @override
+  String toString() {
+    return 'Cow{name: $name, age: $age}';
+  }
+
+  // override the hashcodes for the Cow class
+  @override
+  int get hashCode => name.hashCode ^ age.hashCode;
+}
+
 void testClasses() {
   print('************************************');
 
@@ -283,6 +300,14 @@ void testClasses() {
   // Instantiating the Dog class --> Using the factory constructor
   final dog = Dog.createDog('Chop', 4);
   print("The dog's name is ${dog.name} and it is ${dog.age} years old!");
+
+  // Instantiating the Cow class
+  final cow1 = Cow('Bessie', 5);
+  final cow2 = Cow('Bessie', 5);
+  final hashcodeComp = cow1.hashCode == cow2.hashCode;
+  print('Cow1: $cow1');
+  print('Cow2: $cow2');
+  print(hashcodeComp);
 
   print('************************************');
 }
