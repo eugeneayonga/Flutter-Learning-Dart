@@ -312,6 +312,39 @@ void testClasses() {
   print('************************************');
 }
 
+// Advanced Dart
+// 1) Extensions --> Used to add functionality to existing classes
+class Lion {
+  final String name;
+  Lion(this.name);
+}
+
+extension Run on Lion {
+  void run() => print('$name is running!');
+} // Run is an extension of the Lion class
+
+class PersonName {
+  final String firstName;
+  final String lastName;
+  PersonName(this.firstName, this.lastName);
+}
+
+extension FullName on PersonName {
+  String get fullName => '$firstName $lastName';
+}
+
+void testAdvancedDart() {
+  print('************************************');
+
+  final lion = Lion('Simba');
+  lion.run();
+
+  final personName = PersonName('Foo', 'Bar');
+  print('Full name: ${personName.fullName}');
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -327,7 +360,8 @@ class MyApp extends StatelessWidget {
     // testNullSafety();
     // testEnumerations();
     // testSwitchStatement(ColorName.red);
-    testClasses();
+    // testClasses();
+    testAdvancedDart();
 
     return MaterialApp(
       title: 'Flutter Demo',
