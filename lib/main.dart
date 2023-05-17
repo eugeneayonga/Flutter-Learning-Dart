@@ -405,6 +405,46 @@ void testAdvancedDartGenerators() {
   print('************************************');
 }
 
+// GENERICS --> Used to create reusable code
+// i.e
+
+// class PairOfStrings {
+//   final String first;
+//   final String second;
+//   PairOfStrings(this.first, this.second);
+// }
+
+// class PairOfIntegers {
+//   final int first;
+//   final int second;
+//   PairOfIntegers(this.first, this.second);
+// }
+
+// Above classes can be replaced with a generic class
+
+class Pair<A, B> {
+  final A first;
+  final B second;
+  Pair(this.first, this.second);
+
+  void printPair() {
+    print('First: $first, \n Second: $second');
+  }
+}
+
+void testAdvancedDartGenerics() {
+  print('************************************');
+
+  final pair1 = Pair<String, String>('Foo', 'Bar');
+  final pair2 = Pair<int, String>(1, 'Bar');
+  final pair3 = Pair<int, int>(1, 2);
+  pair1.printPair();
+  pair2.printPair();
+  pair3.printPair();
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -424,7 +464,8 @@ class MyApp extends StatelessWidget {
     // testAdvancedDartExtensions();
     // testAdvancedDartFuture();
     // testAdvancedDartStreams();
-    testAdvancedDartGenerators();
+    // testAdvancedDartGenerators();
+    testAdvancedDartGenerics();
 
     return MaterialApp(
       title: 'Flutter Demo',
