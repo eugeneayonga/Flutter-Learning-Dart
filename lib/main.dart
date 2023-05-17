@@ -359,6 +359,24 @@ void testAdvancedDartFuture() async {
   print('************************************');
 }
 
+// 3) Streams --> An asynchronous 'pipe/sequence' of data // Data that will be available in the future //A Stream is a Future that is continuously generating data
+Stream<String> getName() =>
+    Stream.periodic(const Duration(seconds: 2), (name) => 'Foo Bar');
+
+void testAdvancedDartStreams() async {
+  print('************************************');
+
+  // getName().listen((event) {
+  //   print(event);
+  // });
+
+  await for (final name in getName()) {
+    print(name);
+  }
+
+  print('************************************');
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -376,7 +394,8 @@ class MyApp extends StatelessWidget {
     // testSwitchStatement(ColorName.red);
     // testClasses();
     // testAdvancedDartExtensions();
-    testAdvancedDartFuture();
+    // testAdvancedDartFuture();
+    // testAdvancedDartStreams();
 
     return MaterialApp(
       title: 'Flutter Demo',
